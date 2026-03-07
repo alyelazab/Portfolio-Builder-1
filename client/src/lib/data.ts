@@ -224,5 +224,5 @@ export const transcriptAnalyzerCaseStudy = {
     "Multi-stage processing instead of single-pass. Extraction accuracy improved dramatically when each stage had a focused, narrow job",
     "Chose Confluence output over a dashboard because the team already lived in Confluence. The real unlock wasn't the AI, it was structuring the pipeline so each stage had a single, clear job",
   ],
-  buildTime: "3 days",
+  buildTime: "1 day",
 };
