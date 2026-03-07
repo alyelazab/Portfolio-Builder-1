@@ -1,0 +1,31 @@
+Create a single-page portfolio site using React, Tailwind CSS, and Framer Motion.
+
+PERSON: Aly Elazab — Senior AI Product Manager, 4+ years SaaS, Abu Dhabi. Builds side projects (MyMasareef finance tracker, call transcript AI pipeline). Plays volleyball professionally. Ohio State grad. Native Arabic speaker from Egypt.
+
+VIBE: Arc Browser meets Notion — light, clean, modern, techy. NOT a consulting firm. NOT a dark developer template. This should feel like a personal product page.
+
+DESIGN:
+- Background: white #FFFFFF, alternating #F7F7F8
+- Text: near-black #111111 headlines, #444444 body
+- Primary accent: vivid blue-violet #6C5CE7 (CTAs, links, highlights)
+- Secondary: warm coral #FF6B6B (sparingly for badges, hover pops)
+- Tertiary: soft teal #00B894 (tags, small accents)
+- Font: Manrope (Google Fonts) — single family, weights 400-800. Modern, round, friendly.
+- Hero name: 64px weight 800. Section titles: 36px weight 700 with emoji.
+- Rounded corners everywhere (16px cards, 24px feature cards, 12px buttons)
+- Very subtle shadows, playful hover micro-interactions (lift, scale)
+- Scroll animations: fade + translateY, staggered
+
+SECTIONS:
+1. Hero — white bg, centered. Small pill badge "🚀 Currently at Contango, Abu Dhabi". Big headline "I build products that people actually use." with coral underline on "actually". Subtitle. Two CTAs. Circular profile photo with violet border ring. Social row.
+2. About (#F7F7F8) — conversational bio, 4 metric cards with colored top borders (violet/coral/teal)
+3. Projects (white) — 2 large stacked feature cards: MyMasareef (teal "Live Product" tag) and Transcript Analyzer (coral "Internal Tool" tag). Each with description, expandable story, tech pills, screenshot placeholder.
+4. Process (#F7F7F8) — "How I work ⚡" — 2x2 grid: Discover, Prototype Fast, Ship & Measure, Iterate with emoji icons
+5. Experience (white) — clean table-like list, not traditional timeline. Year in violet, role bold, impact right.
+6. Speaking (#F7F7F8) — 3 video placeholder cards with violet play buttons
+7. Beyond Work (white) — 4 cards with large emoji: volleyball, Egypt→Abu Dhabi, Ohio State, weekend builder
+8. Contact (#F7F7F8) — 3 contact method cards (email, LinkedIn, location) + inline form. NO resume download.
+9. Nav — sticky, white, clean. Logo left, links right, violet "Let's Talk" CTA button
+10. Footer — minimal, light. "Built by Aly · 2025" + social icons + "Made with code, coffee, and Claude ☕"
+
+Make it feel like a tech product page, not a corporate portfolio. Use emoji in section titles. Rounded corners on everything. Color pops against white canvas.
