@@ -40,7 +40,7 @@ export default function Projects() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-4xl font-bold mb-12">Featured Work 💻</h2>
+          <h2 className="text-4xl font-bold mb-12">Side Projects 💻</h2>
 
           <div className="space-y-12">
             {projectsData.map((project, i) => {

@@ -12,7 +12,7 @@ export const siteConfig = {
 
 export const navLinks = [
   { label: "About", id: "about" },
-  { label: "Projects", id: "projects" },
+  { label: "Side Projects", id: "projects" },
   { label: "Experience", id: "experience" },
   { label: "Beyond Work", id: "beyond" },
 ];
@@ -70,7 +70,7 @@ export const processSteps = [
   {
     emoji: "\uD83D\uDD0D",
     title: "Discover",
-    desc: "Talk to users. Understand the real problem before jumping to solutions.",
+    desc: "Analyze existing feedback channels, talk to users. Understand the real problem first.",
   },
   {
     emoji: "\u26A1",
@@ -84,8 +84,8 @@ export const processSteps = [
   },
   {
     emoji: "\uD83D\uDD04",
-    title: "Iterate",
-    desc: "Use the data. Refine the experience. Make it slightly better every day.",
+    title: "Iterate, Iterate, Iterate",
+    desc: "Then iterate once more. The product is never done, but it should get better every day.",
   },
 ];
 
@@ -128,9 +128,24 @@ export const experienceRoles = [
 ];
 
 export const speakingTalks = [
-  { title: "Product Talk 1", event: "Tech Conference '24" },
-  { title: "Product Talk 2", event: "Tech Conference '24" },
-  { title: "Product Talk 3", event: "Tech Conference '24" },
+  {
+    title: "What You're Missing with Firebase Crashlytics",
+    event: "Luciq.ai",
+    url: "https://www.youtube.com/watch?v=To9RTJ1cO5U",
+    thumbnail: "https://i.ytimg.com/vi/To9RTJ1cO5U/hqdefault.jpg",
+  },
+  {
+    title: "Code Ownership, Managing Teams, and Alerting",
+    event: "Luciq.ai",
+    url: "https://www.youtube.com/watch?v=uUuiGzRRfew",
+    thumbnail: "https://i.ytimg.com/vi/uUuiGzRRfew/hqdefault.jpg",
+  },
+  {
+    title: "Getting Started with Instabug: Beyond Bug Reporting",
+    event: "Luciq.ai (formerly Instabug)",
+    url: "https://www.youtube.com/watch?v=UsB-CyKHvA0",
+    thumbnail: "https://i.ytimg.com/vi/UsB-CyKHvA0/hqdefault.jpg",
+  },
 ];
 
 export const beyondWorkCards = [

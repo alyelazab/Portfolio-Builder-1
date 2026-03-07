@@ -16,15 +16,23 @@ export default function Speaking() {
 
           <div className="grid md:grid-cols-3 gap-6">
             {speakingTalks.map((talk, i) => (
-              <motion.div
+              <motion.a
                 key={i}
+                href={talk.url}
+                target="_blank"
+                rel="noopener noreferrer"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.1 }}
                 className="group relative bg-background rounded-[24px] overflow-hidden border border-border/50 shadow-sm cursor-pointer aspect-video"
               >
-                <div className="absolute inset-0 bg-secondary/50 flex items-center justify-center group-hover:bg-secondary/30 transition-colors">
+                <img
+                  src={talk.thumbnail}
+                  alt={talk.title}
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors flex items-center justify-center">
                   <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform">
                     <Play className="w-6 h-6 text-aly-violet ml-1" fill="currentColor" />
                   </div>
@@ -33,7 +41,7 @@ export default function Speaking() {
                   <div className="font-bold">{talk.title}</div>
                   <div className="text-sm opacity-80">{talk.event}</div>
                 </div>
-              </motion.div>
+              </motion.a>
             ))}
           </div>
         </motion.div>

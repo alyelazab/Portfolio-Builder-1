@@ -10,7 +10,8 @@ Personal portfolio site built with Vite + React + Express + Tailwind v4 + Framer
 - **Sections** (in page order): Nav, Hero, About, Projects, Process, Experience, Speaking, BeyondWork, Contact, Footer
 - **Page**: `client/src/pages/home.tsx` composes all sections
 - **Case study**: `docs/portfolio-case-study.md` (MyMasareef)
-- **Server**: Express server in `server/` serves the Vite app, binds to `process.env.PORT`
+- **Server**: Express server in `server/` serves the Vite app, binds to `process.env.PORT` (default: 3000)
+- **Local dev URL**: http://localhost:3000
 - **Deploy target**: Railway
 
 ## About Aly
@@ -61,6 +62,7 @@ Multi-stage AI pipeline extracting structured product feedback from hundreds of 
 - CSS variables defined in `client/src/index.css`
 
 ## Rules
+- Do NOT use em dashes (the long dash character). Use commas, periods, or reword instead
 - Do NOT add a resume download or PDF
 - Do NOT add dark mode
 - Do NOT redesign sections unless asked
