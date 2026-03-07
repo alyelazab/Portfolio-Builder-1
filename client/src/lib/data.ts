@@ -30,8 +30,8 @@ export const heroData = {
 
 export const aboutData = {
   paragraphs: [
-    "Hi, I'm Aly. I'm a Senior AI Product Manager currently based in Abu Dhabi, originally from Egypt. I specialize in taking complex technical capabilities and translating them into products that people actually want to use.",
-    "When I'm not writing specs or talking to users, I'm usually building my own side projects like MyMasareef or hacking together AI pipelines. I believe the best PMs are the ones who aren't afraid to get their hands dirty.",
+    "Hi, I'm Aly. I'm a Senior AI Product Manager based in Abu Dhabi, originally from Egypt. I obsess over finding the real problem behind the stated one, then use AI and complex engineering to deliver experiences that feel effortlessly simple.",
+    "Outside of work, I ship my own products to scratch real itches I find in the wild. I believe the best PMs don't just write specs. They talk to users, prototype fast, and aren't afraid to get their hands dirty.",
   ],
   metrics: [
     { label: "ARPU Growth", value: "175%", color: "bg-aly-violet" },
