@@ -48,9 +48,10 @@ export const projectsData = [
       "Free AI-powered spending analysis tool for CIB Egypt bank customers. Upload a bank CSV, get a categorized spending report in seconds. Financial data never leaves the browser.",
     tag: "Live Product",
     tagColor: "text-aly-teal bg-aly-teal/10",
-    tech: ["React", "TypeScript", "Tailwind", "Supabase", "Express", "Gemini 2.5 Flash", "Recharts", "Framer Motion"],
+    tech: ["React", "TypeScript", "Tailwind", "Supabase", "Express", "Gemini 2.5 Flash", "Claude Code", "Recharts", "Framer Motion"],
     link: "https://mymasareef.com",
     image: "mymasareef-demo",
+    caseStudyKey: "mymasareef" as const,
   },
   {
     title: "Call Transcript Analyzer",
@@ -59,8 +60,9 @@ export const projectsData = [
     tag: "Internal Tool",
     tagColor: "text-aly-coral bg-aly-coral/10",
     tech: ["Claude Code", "Claude API", "Confluence"],
-    link: "#",
+    link: "https://github.com/alyelazab/transcript-analyzer",
     image: "transcript-demo",
+    caseStudyKey: "transcript" as const,
   },
 ];
 
@@ -135,7 +137,7 @@ export const beyondWorkCards = [
   {
     emoji: "\uD83C\uDFD0",
     title: "Volleyball",
-    desc: "Professional volleyball player — spiking on and off the court.",
+    desc: "Professional volleyball player, spiking on and off the court.",
   },
   {
     emoji: "\uD83C\uDF0D",
@@ -144,13 +146,13 @@ export const beyondWorkCards = [
   },
   {
     emoji: "\uD83C\uDF30",
-    title: "Ohio State Grad",
-    desc: "B.S. Information Systems, Dean's List, 3.53 GPA. Go Buckeyes!",
+    title: "Ohio State Grad 🇺🇸",
+    desc: "B.S. Information Systems from a top-100 US university. Dean's List, 3.53 GPA.",
   },
   {
     emoji: "\uD83D\uDEE0\uFE0F",
     title: "Weekend Builder",
-    desc: "Always tinkering with new APIs and frameworks.",
+    desc: "Always experimenting with the latest AI tools, agents, and frameworks.",
   },
 ];
 
@@ -189,13 +191,20 @@ export const myMasareefCaseStudy = {
 
 export const transcriptAnalyzerCaseStudy = {
   story:
-    "At Luciq.ai, sales calls contained buried product feedback — feature requests, complaints, workarounds — that nobody had time to extract manually. I built a Claude Code-powered pipeline with multiple processing stages.",
+    "At Luciq.ai, hundreds of sales calls were happening every quarter — each one full of buried product feedback: feature requests, complaints, workarounds that customers had invented. The sales team would sometimes relay the loudest asks, but there was no systematic way to capture what customers were actually saying. I built a Claude Code-powered pipeline to process transcripts at scale and turn them into structured, actionable product intelligence.",
   pipeline: [
-    "Transcript ingestion from Clari Copilot",
-    "Feedback extraction and categorization by product area",
-    "Deduplication across hundreds of feedback items",
-    "Confluence-ready report generation",
+    "Transcript ingestion from Clari Copilot exports",
+    "Multi-pass feedback extraction — separating feature requests, bugs, complaints, and praise",
+    "Categorization by product area and severity",
+    "Cross-transcript deduplication to surface recurring themes",
+    "Confluence-ready report generation with evidence trails back to source transcripts",
+  ],
+  productDecisions: [
+    "Used CLAUDE.md as a context engineering layer — gave Claude Code persistent instructions about our product taxonomy, team vocabulary, and output format across the entire pipeline",
+    "Multi-stage processing instead of single-pass — extraction accuracy improved dramatically when each stage had a focused, narrow job",
+    "Chose Confluence output over a dashboard because the team already lived in Confluence — meeting users where they are",
   ],
   keyInsight:
-    "Used structured CLAUDE.md for context engineering to keep Claude Code focused across the pipeline. Gave the product team a structured view of what customers were actually saying, rather than relying on anecdotal sales feedback.",
+    "The real unlock wasn't the AI — it was structuring the pipeline so each stage had a single, clear job. Context engineering with CLAUDE.md meant the model understood our product taxonomy without re-prompting every run.",
+  buildTime: "3 days",
 };
