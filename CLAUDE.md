@@ -1,18 +1,21 @@
 # Portfolio Website — Aly Elazab
 
 ## Project
-Personal portfolio site built with Vite + React + Express + Tailwind v4 + Framer Motion + shadcn/ui. Currently enhancing section by section before going live.
+Personal portfolio site built with Vite + React + Tailwind v4 + Framer Motion + shadcn/ui. Live at alyelazab.com.
 
 ## Architecture
-- **Stack**: Vite 7, React 19, Express 5, Tailwind CSS v4, Framer Motion, shadcn/ui (Radix)
+- **Stack**: Vite 7, React 19, Tailwind CSS v4, Framer Motion, shadcn/ui (Radix)
 - **Data file**: All text content lives in `client/src/lib/data.ts` — edit copy there, not in components
 - **Components**: Each section is its own component in `client/src/components/`
 - **Sections** (in page order): Nav, Hero, About, Projects, Process, Experience, Speaking, BeyondWork, Contact, Footer
 - **Page**: `client/src/pages/home.tsx` composes all sections
 - **Case study**: `docs/portfolio-case-study.md` (MyMasareef)
-- **Server**: Express server in `server/` serves the Vite app, binds to `process.env.PORT` (default: 3000)
-- **Local dev URL**: http://localhost:3000
-- **Deploy target**: Railway
+- **Analytics**: Custom Supabase analytics in `client/src/lib/analytics.ts` — tracks page views, section views (Intersection Observer), UTM params, referrer. Data in `page_events` table.
+- **Contact form**: Submits to Supabase Edge Function (`send-contact`) which saves to `contact_messages` table and emails via Resend.
+- **Local dev**: Express server in `server/` for dev only. `npm run dev` → http://localhost:3000
+- **Deploy**: Cloudflare Pages (static site). Build command: `npm run build:pages`. Output: `dist/public`. Config in `wrangler.jsonc`. Auto-deploys on push to main.
+- **Domain**: alyelazab.com (Cloudflare DNS + SSL)
+- **Supabase project**: `czhhwofczlvxsiavkpwd` (shared with MyMasareef)
 
 ## About Aly
 **Aly Elazab** — Senior AI Product Manager
