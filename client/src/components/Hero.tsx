@@ -40,10 +40,10 @@ export default function Hero() {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 mb-12">
-          <Button size="lg" className="bg-aly-violet hover:bg-aly-violet/90 text-white rounded-xl text-base px-8 h-14 hover-lift">
+          <Button size="lg" onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })} className="bg-aly-violet hover:bg-aly-violet/90 text-white rounded-xl text-base px-8 h-14 hover-lift">
             {heroData.ctaPrimary}
           </Button>
-          <Button size="lg" variant="outline" className="rounded-xl text-base px-8 h-14 hover-lift border-border/60 hover:bg-aly-bg-alt text-foreground">
+          <Button size="lg" variant="outline" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} className="rounded-xl text-base px-8 h-14 hover-lift border-border/60 hover:bg-aly-bg-alt text-foreground">
             {heroData.ctaSecondary}
           </Button>
         </div>
