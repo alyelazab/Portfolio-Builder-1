@@ -1,27 +1,7 @@
 import { motion } from "framer-motion";
+import { experienceRoles } from "@/lib/data";
 
 export default function Experience() {
-  const roles = [
-    {
-      year: "2023 - Present",
-      role: "Senior AI Product Manager",
-      company: "Contango",
-      impact: "Leading AI feature integration, increasing user engagement by 40%."
-    },
-    {
-      year: "2021 - 2023",
-      role: "Product Manager",
-      company: "TechCorp SaaS",
-      impact: "Launched 3 core products generating $2M+ in ARR."
-    },
-    {
-      year: "2019 - 2021",
-      role: "Associate PM",
-      company: "Fintech Startup",
-      impact: "Streamlined onboarding flow, cutting drop-off rate by half."
-    }
-  ];
-
   return (
     <section id="experience" className="py-24 px-6 bg-background">
       <div className="container mx-auto max-w-5xl">
@@ -32,10 +12,10 @@ export default function Experience() {
           transition={{ duration: 0.5 }}
         >
           <h2 className="text-4xl font-bold mb-12">Experience 📈</h2>
-          
+
           <div className="flex flex-col gap-4">
-            {roles.map((role, i) => (
-              <motion.div 
+            {experienceRoles.map((role, i) => (
+              <motion.div
                 key={i}
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}

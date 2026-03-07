@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { navLinks } from "@/lib/data";
 
 export default function Nav() {
   const scrollTo = (id: string) => {
@@ -15,12 +16,13 @@ export default function Nav() {
           Aly.
         </div>
         <div className="hidden md:flex items-center gap-8 text-sm font-medium text-secondary-foreground">
-          <button onClick={() => scrollTo('about')} className="hover:text-foreground transition-colors">About</button>
-          <button onClick={() => scrollTo('projects')} className="hover:text-foreground transition-colors">Projects</button>
-          <button onClick={() => scrollTo('experience')} className="hover:text-foreground transition-colors">Experience</button>
-          <button onClick={() => scrollTo('beyond')} className="hover:text-foreground transition-colors">Beyond Work</button>
+          {navLinks.map((link) => (
+            <button key={link.id} onClick={() => scrollTo(link.id)} className="hover:text-foreground transition-colors">
+              {link.label}
+            </button>
+          ))}
         </div>
-        <Button 
+        <Button
           onClick={() => scrollTo('contact')}
           className="bg-aly-violet hover:bg-aly-violet/90 text-white rounded-xl shadow-sm"
         >

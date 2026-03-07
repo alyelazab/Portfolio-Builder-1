@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Play } from "lucide-react";
+import { speakingTalks } from "@/lib/data";
 
 export default function Speaking() {
   return (
@@ -12,10 +13,10 @@ export default function Speaking() {
           transition={{ duration: 0.5 }}
         >
           <h2 className="text-4xl font-bold mb-12">Speaking 🎤</h2>
-          
+
           <div className="grid md:grid-cols-3 gap-6">
-            {[1, 2, 3].map((_, i) => (
-              <motion.div 
+            {speakingTalks.map((talk, i) => (
+              <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -29,8 +30,8 @@ export default function Speaking() {
                   </div>
                 </div>
                 <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent text-white">
-                  <div className="font-bold">Product Talk {i + 1}</div>
-                  <div className="text-sm opacity-80">Tech Conference '24</div>
+                  <div className="font-bold">{talk.title}</div>
+                  <div className="text-sm opacity-80">{talk.event}</div>
                 </div>
               </motion.div>
             ))}

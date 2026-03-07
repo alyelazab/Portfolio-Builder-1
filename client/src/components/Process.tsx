@@ -1,29 +1,7 @@
 import { motion } from "framer-motion";
+import { processSteps } from "@/lib/data";
 
 export default function Process() {
-  const steps = [
-    {
-      emoji: "🔍",
-      title: "Discover",
-      desc: "Talk to users. Understand the real problem before jumping to solutions."
-    },
-    {
-      emoji: "⚡",
-      title: "Prototype Fast",
-      desc: "Build rough, test early. Validate hypotheses with minimum viable effort."
-    },
-    {
-      emoji: "🚀",
-      title: "Ship & Measure",
-      desc: "Get it in production. Set up analytics. See what people actually do."
-    },
-    {
-      emoji: "🔄",
-      title: "Iterate",
-      desc: "Use the data. Refine the experience. Make it slightly better every day."
-    }
-  ];
-
   return (
     <section id="process" className="py-24 px-6 bg-aly-bg-alt">
       <div className="container mx-auto max-w-5xl">
@@ -34,10 +12,10 @@ export default function Process() {
           transition={{ duration: 0.5 }}
         >
           <h2 className="text-4xl font-bold mb-12">How I work ⚡</h2>
-          
+
           <div className="grid sm:grid-cols-2 gap-6">
-            {steps.map((step, i) => (
-              <motion.div 
+            {processSteps.map((step, i) => (
+              <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}

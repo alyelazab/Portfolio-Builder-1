@@ -1,13 +1,7 @@
 import { motion } from "framer-motion";
+import { beyondWorkCards } from "@/lib/data";
 
 export default function BeyondWork() {
-  const cards = [
-    { emoji: "🏐", title: "Volleyball", desc: "Playing professionally and spiking code in my free time." },
-    { emoji: "🌍", title: "Egypt → Abu Dhabi", desc: "Native Arabic speaker, blending cultures and perspectives." },
-    { emoji: "🌰", title: "Ohio State Grad", desc: "Go Buckeyes! Proud alumni with a tech mindset." },
-    { emoji: "🛠️", title: "Weekend Builder", desc: "Always tinkering with new APIs and frameworks." }
-  ];
-
   return (
     <section id="beyond" className="py-24 px-6 bg-background">
       <div className="container mx-auto max-w-5xl">
@@ -18,10 +12,10 @@ export default function BeyondWork() {
           transition={{ duration: 0.5 }}
         >
           <h2 className="text-4xl font-bold mb-12">Beyond Work 🌟</h2>
-          
+
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {cards.map((card, i) => (
-              <motion.div 
+            {beyondWorkCards.map((card, i) => (
+              <motion.div
                 key={i}
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}

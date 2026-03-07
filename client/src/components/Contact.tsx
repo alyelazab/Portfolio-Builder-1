@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, Linkedin, MapPin, Send } from "lucide-react";
+import { contactData, siteConfig } from "@/lib/data";
 
 export default function Contact() {
   return (
@@ -15,39 +16,39 @@ export default function Contact() {
           transition={{ duration: 0.5 }}
         >
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Let's build something 🤝</h2>
+            <h2 className="text-4xl font-bold mb-4">{contactData.heading} 🤝</h2>
             <p className="text-lg text-secondary-foreground max-w-2xl mx-auto">
-              Whether you're looking to build a new product, or just want to chat about AI and SaaS, I'm always open to connecting.
+              {contactData.subheading}
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-5 gap-12">
             <div className="md:col-span-2 space-y-4">
-              <div className="bg-background p-6 rounded-[16px] border border-border/50 flex items-center gap-4 hover-lift">
+              <a href={`mailto:${siteConfig.email}`} className="bg-background p-6 rounded-[16px] border border-border/50 flex items-center gap-4 hover-lift block">
                 <div className="w-12 h-12 bg-aly-violet/10 text-aly-violet rounded-full flex items-center justify-center">
                   <Mail className="w-5 h-5" />
                 </div>
                 <div>
-                  <div className="font-semibold">Email</div>
-                  <div className="text-sm text-secondary-foreground">hello@alyelazab.com</div>
+                  <div className="font-semibold">{contactData.emailLabel}</div>
+                  <div className="text-sm text-secondary-foreground">{siteConfig.email}</div>
                 </div>
-              </div>
-              <div className="bg-background p-6 rounded-[16px] border border-border/50 flex items-center gap-4 hover-lift">
+              </a>
+              <a href={siteConfig.linkedin} target="_blank" rel="noopener noreferrer" className="bg-background p-6 rounded-[16px] border border-border/50 flex items-center gap-4 hover-lift block">
                 <div className="w-12 h-12 bg-[#0077b5]/10 text-[#0077b5] rounded-full flex items-center justify-center">
                   <Linkedin className="w-5 h-5" />
                 </div>
                 <div>
-                  <div className="font-semibold">LinkedIn</div>
-                  <div className="text-sm text-secondary-foreground">/in/alyelazab</div>
+                  <div className="font-semibold">{contactData.linkedinLabel}</div>
+                  <div className="text-sm text-secondary-foreground">/in/aly-elazab</div>
                 </div>
-              </div>
+              </a>
               <div className="bg-background p-6 rounded-[16px] border border-border/50 flex items-center gap-4 hover-lift">
                 <div className="w-12 h-12 bg-aly-coral/10 text-aly-coral rounded-full flex items-center justify-center">
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <div className="font-semibold">Location</div>
-                  <div className="text-sm text-secondary-foreground">Abu Dhabi, UAE</div>
+                  <div className="font-semibold">{contactData.locationLabel}</div>
+                  <div className="text-sm text-secondary-foreground">{siteConfig.location}</div>
                 </div>
               </div>
             </div>

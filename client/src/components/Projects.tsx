@@ -1,26 +1,10 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight, Github } from "lucide-react";
+import { projectsData } from "@/lib/data";
+import mymasareefDemo from "@/assets/mymasareef-demo.gif";
+import transcriptDemo from "@/assets/transcript-demo.gif";
 
 export default function Projects() {
-  const projects = [
-    {
-      title: "MyMasareef",
-      description: "A comprehensive personal finance tracker designed for the Middle Eastern market. Built to handle complex expense categorization with a dead-simple UI.",
-      tag: "Live Product",
-      tagColor: "text-aly-teal bg-aly-teal/10",
-      tech: ["React Native", "Node.js", "PostgreSQL"],
-      link: "#"
-    },
-    {
-      title: "Transcript Analyzer",
-      description: "An internal AI pipeline that automatically ingests customer call recordings, transcribes them, and extracts actionable product insights and feature requests.",
-      tag: "Internal Tool",
-      tagColor: "text-aly-coral bg-aly-coral/10",
-      tech: ["Python", "OpenAI API", "FastAPI"],
-      link: "#"
-    }
-  ];
-
   return (
     <section id="projects" className="py-24 px-6 bg-background">
       <div className="container mx-auto max-w-5xl">
@@ -31,10 +15,10 @@ export default function Projects() {
           transition={{ duration: 0.5 }}
         >
           <h2 className="text-4xl font-bold mb-12">Featured Work 💻</h2>
-          
+
           <div className="space-y-12">
-            {projects.map((project, i) => (
-              <motion.div 
+            {projectsData.map((project, i) => (
+              <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -49,11 +33,11 @@ export default function Projects() {
                       {project.tag}
                     </span>
                   </div>
-                  
+
                   <p className="text-secondary-foreground text-lg">
                     {project.description}
                   </p>
-                  
+
                   <div className="flex flex-wrap gap-2">
                     {project.tech.map((t, j) => (
                       <span key={j} className="px-3 py-1 bg-aly-bg-alt text-secondary-foreground rounded-full text-sm font-medium border border-border/50">
@@ -62,16 +46,24 @@ export default function Projects() {
                     ))}
                   </div>
 
-                  <a href={project.link} className="inline-flex items-center gap-2 text-aly-violet font-semibold hover:text-aly-violet/80 transition-colors mt-4">
+                  <a href={project.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-aly-violet font-semibold hover:text-aly-violet/80 transition-colors mt-4">
                     View Project <ArrowUpRight className="w-4 h-4" />
                   </a>
                 </div>
-                
+
                 <div className="flex-1 rounded-xl bg-aly-bg-alt border border-border/50 flex items-center justify-center min-h-[240px] relative overflow-hidden group-hover:border-aly-violet/30 transition-colors">
                   <div className="absolute inset-0 bg-gradient-to-br from-aly-violet/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                  <span className="text-secondary-foreground/50 font-medium flex items-center gap-2">
-                    <Github className="w-5 h-5" /> Screenshot Placeholder
-                  </span>
+                  {project.image ? (
+                    <img
+                      src={project.image === "mymasareef-demo" ? mymasareefDemo : project.image === "transcript-demo" ? transcriptDemo : undefined}
+                      alt={project.title}
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <span className="text-secondary-foreground/50 font-medium flex items-center gap-2">
+                      <Github className="w-5 h-5" /> Screenshot Placeholder
+                    </span>
+                  )}
                 </div>
               </motion.div>
             ))}
