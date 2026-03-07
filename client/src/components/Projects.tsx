@@ -126,7 +126,7 @@ export default function Projects() {
                           {/* Act 1: The Problem */}
                           <div className="space-y-3">
                             <h4 className="text-sm font-semibold text-aly-coral uppercase tracking-wide">The Problem</h4>
-                            <p className="text-foreground font-semibold text-base">{caseStudy.story.hook}</p>
+                            <p className="text-foreground text-base">{caseStudy.story.hook}</p>
                             <RichText text={caseStudy.story.detail} className="text-secondary-foreground leading-relaxed" />
                           </div>
 

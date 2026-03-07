@@ -36,7 +36,7 @@ export const aboutData = {
   metrics: [
     { label: "ARPU Growth", value: "175%", color: "bg-aly-violet" },
     { label: "MAU & Power User Increase", value: "20%", color: "bg-aly-coral" },
-    { label: "AI Insights Shipped", value: "Live", color: "bg-aly-teal" },
+    { label: "AI Products Shipped", value: "3", color: "bg-aly-teal" },
     { label: "Cups of Coffee", value: "\u221E", color: "bg-aly-violet" },
   ],
 };
@@ -112,7 +112,7 @@ export const experienceRoles = [
       "Redesigned pricing model driving 175% ARPU growth. Converted self-serve users into a profitable revenue motion.",
   },
   {
-    year: "2021 - 2023",
+    year: "2021",
     role: "Sales Engineer",
     company: "Luciq.ai (formerly Instabug)",
     impact:
@@ -190,7 +190,7 @@ export const myMasareefCaseStudy = {
   story: {
     hook: "Egyptian banks don't categorize your spending. No charts, no breakdowns, nothing.",
     detail:
-      "When I opened my CIB bank statement to try doing it myself, the CSV was full of entries like `Kashier*Zooba October` and `GEIDEA*TALABAT-07A EGY`. Payment processors mask the actual merchant name behind cryptic codes, location suffixes, and terminal IDs. So I built MyMasareef to solve both problems: classify the merchants and give you the spending breakdown your bank won't.",
+      "When I opened my CIB bank statement, the CSV read `Kashier*Zooba October` and `GEIDEA*BRGR` instead of actual merchant names. So I built MyMasareef to decode those cryptic entries and give you the spending breakdown your bank won't.",
   },
   steps: [
     "Pattern matching against 90+ known Egyptian merchants, with normalization that strips processor prefixes, location suffixes, and terminal codes",
