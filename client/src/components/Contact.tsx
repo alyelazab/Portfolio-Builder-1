@@ -1,11 +1,43 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, Linkedin, MapPin, Send } from "lucide-react";
+import { Mail, Linkedin, MapPin, Send, Check, Loader2 } from "lucide-react";
 import { contactData, siteConfig } from "@/lib/data";
 
+const EDGE_FN_URL = "https://czhhwofczlvxsiavkpwd.supabase.co/functions/v1/send-contact";
+
 export default function Contact() {
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    const payload = {
+      name: formData.get("name") as string,
+      email: formData.get("email") as string,
+      message: formData.get("message") as string,
+    };
+
+    if (!payload.name || !payload.email || !payload.message) return;
+
+    setStatus("sending");
+    try {
+      const res = await fetch(EDGE_FN_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      if (!res.ok) throw new Error();
+      setStatus("sent");
+      form.reset();
+    } catch {
+      setStatus("error");
+    }
+  }
+
   return (
     <section id="contact" className="py-24 px-6 bg-aly-bg-alt">
       <div className="container mx-auto max-w-5xl">
@@ -54,24 +86,34 @@ export default function Contact() {
             </div>
 
             <div className="md:col-span-3 bg-background p-8 rounded-[24px] border border-border/50 shadow-sm">
-              <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+              <form className="space-y-6" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <label className="text-sm font-semibold">Name</label>
-                    <Input placeholder="John Doe" className="bg-aly-bg-alt border-transparent focus-visible:ring-aly-violet rounded-xl h-12" />
+                    <Input name="name" required placeholder="John Doe" className="bg-aly-bg-alt border-transparent focus-visible:ring-aly-violet rounded-xl h-12" />
                   </div>
                   <div className="space-y-2">
                     <label className="text-sm font-semibold">Email</label>
-                    <Input type="email" placeholder="john@example.com" className="bg-aly-bg-alt border-transparent focus-visible:ring-aly-violet rounded-xl h-12" />
+                    <Input name="email" type="email" required placeholder="john@example.com" className="bg-aly-bg-alt border-transparent focus-visible:ring-aly-violet rounded-xl h-12" />
                   </div>
                 </div>
                 <div className="space-y-2">
                   <label className="text-sm font-semibold">Message</label>
-                  <Textarea placeholder="Tell me about your project..." className="bg-aly-bg-alt border-transparent focus-visible:ring-aly-violet rounded-xl min-h-[120px] resize-none" />
+                  <Textarea name="message" required placeholder="Tell me about your project..." className="bg-aly-bg-alt border-transparent focus-visible:ring-aly-violet rounded-xl min-h-[120px] resize-none" />
                 </div>
-                <Button className="w-full h-14 rounded-xl bg-aly-violet hover:bg-aly-violet/90 text-white font-semibold text-base hover-lift">
-                  Send Message <Send className="w-4 h-4 ml-2" />
+                <Button
+                  type="submit"
+                  disabled={status === "sending" || status === "sent"}
+                  className="w-full h-14 rounded-xl bg-aly-violet hover:bg-aly-violet/90 text-white font-semibold text-base hover-lift disabled:opacity-70"
+                >
+                  {status === "sending" && <><Loader2 className="w-4 h-4 mr-2 animate-spin" /> Sending...</>}
+                  {status === "sent" && <><Check className="w-4 h-4 mr-2" /> Message Sent!</>}
+                  {status === "error" && <>Try Again <Send className="w-4 h-4 ml-2" /></>}
+                  {status === "idle" && <>Send Message <Send className="w-4 h-4 ml-2" /></>}
                 </Button>
+                {status === "error" && (
+                  <p className="text-sm text-aly-coral text-center">Something went wrong. Please try again or email me directly.</p>
+                )}
               </form>
             </div>
           </div>
