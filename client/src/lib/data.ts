@@ -95,7 +95,7 @@ export const experienceRoles = [
     role: "Senior AI Product Manager",
     company: "Luciq.ai",
     impact:
-      "Built MCP server shipped to 10+ enterprise betas. Ran rapid validation sprints with AI-assisted prototyping. Workflows & Alerting squad.",
+      "Overhauled the alerting system from a legacy cron-based framework to a continuous evaluation engine, significantly improving detection accuracy. Redesigned the alert experience end-to-end, from payload to landing page.",
   },
   {
     year: "2024",
@@ -173,16 +173,16 @@ export const footerText = {
 // MyMasareef case study content for the expanded project view
 export const myMasareefCaseStudy = {
   story:
-    "I opened my CIB bank statement one day and couldn't figure out where my money was going. The CSV was full of entries like KASHIER*ZOOBA 5TH SETTELMENT CAIRO N. and GEIDEA*TALABAT-07A EGY. Payment processors in Egypt mask the actual merchant name behind cryptic codes, location suffixes, and terminal IDs. Nothing existed to make sense of this. So I built MyMasareef.",
+    "I opened my CIB bank statement one day and couldn't figure out where my money was going. The CSV was full of entries like `KASHIER*ZOOBA 5TH SETTELMENT CAIRO N.` and `GEIDEA*TALABAT-07A EGY`. Payment processors in Egypt mask the actual merchant name behind cryptic codes, location suffixes, and terminal IDs. On top of that, Egyptian banks don't give you any way to categorize your spending or track how much you're spending month over month in a given category. No charts, no breakdowns, nothing. So I built MyMasareef.",
   howItWorks: [
     "Pattern matching against 90+ known Egyptian merchants, with normalization that strips processor prefixes, location suffixes, and terminal codes",
     "Gemini Flash for anything unrecognized, prompted with Egyptian market context",
-    "Manual user override as a last resort — every classification gets saved to a shared merchant dictionary that improves over time",
+    "Manual user override as a last resort. Every classification gets saved to a shared merchant dictionary that improves over time",
   ],
   privacy:
     "All financial processing happens in the browser. Transaction amounts, dates, and balances never touch the server. Only merchant name strings are sent to the AI.",
   productDecisions: [
-    "Email gate comes AFTER the user sees their report being built, not before — show value first, then ask for identity",
+    "Email gate comes AFTER the user sees their report being built, not before. Show value first, then ask for identity",
     "Crowdsourced merchant dictionary means cost per report goes down over time while accuracy goes up",
     "Debit cards got their own experience with income, spending, transfers, and savings rate",
   ],
@@ -191,20 +191,20 @@ export const myMasareefCaseStudy = {
 
 export const transcriptAnalyzerCaseStudy = {
   story:
-    "At Luciq.ai, hundreds of sales calls were happening every quarter — each one full of buried product feedback: feature requests, complaints, workarounds that customers had invented. The sales team would sometimes relay the loudest asks, but there was no systematic way to capture what customers were actually saying. I built a Claude Code-powered pipeline to process transcripts at scale and turn them into structured, actionable product intelligence.",
+    "At Luciq.ai, hundreds of sales calls were happening every quarter, each one full of buried product feedback: feature requests, complaints, workarounds that customers had invented. The sales team would sometimes relay the loudest asks, but there was no systematic way to capture what customers were actually saying. I built a Claude Code-powered pipeline to process transcripts at scale and turn them into structured, actionable product intelligence.",
   pipeline: [
     "Transcript ingestion from Clari Copilot exports",
-    "Multi-pass feedback extraction — separating feature requests, bugs, complaints, and praise",
+    "Multi-pass feedback extraction, separating feature requests, bugs, complaints, and praise",
     "Categorization by product area and severity",
     "Cross-transcript deduplication to surface recurring themes",
     "Confluence-ready report generation with evidence trails back to source transcripts",
   ],
   productDecisions: [
-    "Used CLAUDE.md as a context engineering layer — gave Claude Code persistent instructions about our product taxonomy, team vocabulary, and output format across the entire pipeline",
-    "Multi-stage processing instead of single-pass — extraction accuracy improved dramatically when each stage had a focused, narrow job",
-    "Chose Confluence output over a dashboard because the team already lived in Confluence — meeting users where they are",
+    "Used CLAUDE.md as a context engineering layer, giving Claude Code persistent instructions about our product taxonomy, team vocabulary, and output format across the entire pipeline",
+    "Multi-stage processing instead of single-pass. Extraction accuracy improved dramatically when each stage had a focused, narrow job",
+    "Chose Confluence output over a dashboard because the team already lived in Confluence. Meet users where they are",
   ],
   keyInsight:
-    "The real unlock wasn't the AI — it was structuring the pipeline so each stage had a single, clear job. Context engineering with CLAUDE.md meant the model understood our product taxonomy without re-prompting every run.",
+    "The real unlock wasn't the AI. It was structuring the pipeline so each stage had a single, clear job. Context engineering with CLAUDE.md meant the model understood our product taxonomy without re-prompting every run.",
   buildTime: "3 days",
 };
