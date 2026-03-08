@@ -10,10 +10,11 @@ Personal portfolio site built with Vite + React + Tailwind v4 + Framer Motion + 
 - **Sections** (in page order): Nav, Hero, About, Projects, Process, Experience, Speaking, BeyondWork, Contact, Footer
 - **Page**: `client/src/pages/home.tsx` composes all sections
 - **Case study**: `docs/portfolio-case-study.md` (MyMasareef)
-- **Analytics**: Custom Supabase analytics in `client/src/lib/analytics.ts` — tracks page views, section views (Intersection Observer), UTM params, referrer. Data in `page_events` table.
-- **Contact form**: Submits to Supabase Edge Function (`send-contact`) which saves to `contact_messages` table and emails via Resend.
+- **Analytics**: Custom Supabase analytics in `client/src/lib/analytics.ts` — tracks page views, section views (Intersection Observer), UTM params, referrer. Data in `page_events` table. Calls Supabase REST API directly from the client using `import.meta.env.VITE_SUPABASE_*` env vars.
+- **Contact form**: Submits directly to Supabase Edge Function (`send-contact`) which saves to `contact_messages` table and emails via Resend. URL from `import.meta.env.VITE_SUPABASE_EDGE_FN_URL`.
+- **Environment variables**: Uses Vite build-time env vars (`VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`, `VITE_SUPABASE_EDGE_FN_URL`). Locally read from `.env`. In production, set in Cloudflare Pages dashboard (Settings > Environment Variables). The anon key is public by design (protected by Supabase RLS).
 - **Local dev**: Express server in `server/` for dev only. `npm run dev` → http://localhost:3000
-- **Deploy**: Cloudflare Pages (static site). Build command: `npm run build:pages`. Output: `dist/public`. Config in `wrangler.jsonc`. Auto-deploys on push to main.
+- **Deploy**: Cloudflare Pages (static site). Build command: `npm run build:pages`. Output: `dist/public`. Auto-deploys on push to main. There is NO backend server in production. Do NOT add server-side proxy routes, middleware, or Railway/server references.
 - **Domain**: alyelazab.com (Cloudflare DNS + SSL)
 - **Supabase project**: `czhhwofczlvxsiavkpwd` (shared with MyMasareef)
 

@@ -1,14 +1,10 @@
 import express, { type Request, Response, NextFunction } from "express";
-import helmet from "helmet";
-import cors from "cors";
-import rateLimit from "express-rate-limit";
 import { registerRoutes } from "./routes";
 import { serveStatic } from "./static";
 import { createServer } from "http";
 
 const app = express();
 const httpServer = createServer(app);
-const isDev = process.env.NODE_ENV !== "production";
 
 declare module "http" {
   interface IncomingMessage {
@@ -18,7 +14,6 @@ declare module "http" {
 
 app.use(
   express.json({
-    limit: "10kb",
     verify: (req, _res, buf) => {
       req.rawBody = buf;
     },
@@ -26,43 +21,6 @@ app.use(
 );
 
 app.use(express.urlencoded({ extended: false }));
-
-app.use(
-  helmet({
-    contentSecurityPolicy: {
-      directives: {
-        defaultSrc: ["'self'"],
-        styleSrc: ["'self'", "'unsafe-inline'", "fonts.googleapis.com"],
-        fontSrc: ["'self'", "fonts.gstatic.com"],
-        imgSrc: ["'self'", "data:", "i.ytimg.com"],
-        connectSrc: ["'self'"],
-      },
-    },
-  }),
-);
-
-app.use(
-  cors({
-    origin: isDev ? true : ["https://alyelazab.com", "https://www.alyelazab.com"],
-  }),
-);
-
-const apiLimiter = rateLimit({
-  windowMs: 15 * 60 * 1000,
-  max: 100,
-  standardHeaders: true,
-  legacyHeaders: false,
-});
-app.use("/api/", apiLimiter);
-
-const contactLimiter = rateLimit({
-  windowMs: 60 * 60 * 1000,
-  max: 5,
-  standardHeaders: true,
-  legacyHeaders: false,
-  message: { message: "Too many messages sent. Please try again later." },
-});
-app.use("/api/contact", contactLimiter);
 
 export function log(message: string, source = "express") {
   const formattedTime = new Date().toLocaleTimeString("en-US", {

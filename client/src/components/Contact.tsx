@@ -42,7 +42,9 @@ export default function Contact() {
 
     setStatus("sending");
     try {
-      const res = await fetch("/api/contact", {
+      const edgeFnUrl = import.meta.env.VITE_SUPABASE_EDGE_FN_URL;
+      if (!edgeFnUrl) throw new Error("Missing edge function URL");
+      const res = await fetch(edgeFnUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
