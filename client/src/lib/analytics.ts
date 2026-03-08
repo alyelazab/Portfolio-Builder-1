@@ -1,7 +1,3 @@
-const SUPABASE_URL = "https://czhhwofczlvxsiavkpwd.supabase.co";
-const SUPABASE_ANON_KEY =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN6aGh3b2Zjemx2eHNpYXZrcHdkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE5NjEyNDQsImV4cCI6MjA4NzUzNzI0NH0.awIFTurKqf0ZT-4L4KEu_h7jywM-WrEA9D7Eqo_FFrY";
-
 const SESSION_ID =
   Math.random().toString(36).substring(2) + Date.now().toString(36);
 
@@ -30,12 +26,10 @@ function trackEvent(eventType: string, section?: string) {
     session_id: SESSION_ID,
   };
 
-  fetch(`${SUPABASE_URL}/rest/v1/page_events`, {
+  fetch("/api/analytics", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      apikey: SUPABASE_ANON_KEY,
-      Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
     },
     body: JSON.stringify(payload),
   }).catch(() => {

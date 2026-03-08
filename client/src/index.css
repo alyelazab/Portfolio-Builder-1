@@ -110,6 +110,9 @@
   p {
     @apply text-secondary-foreground;
   }
+  button:focus-visible, a:focus-visible {
+    @apply outline-2 outline-offset-2 outline-aly-violet rounded-sm;
+  }
 }
 
 @layer utilities {

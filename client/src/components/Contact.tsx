@@ -6,26 +6,43 @@ import { Textarea } from "@/components/ui/textarea";
 import { Mail, Linkedin, MapPin, Send, Check, Loader2 } from "lucide-react";
 import { contactData, siteConfig } from "@/lib/data";
 
-const EDGE_FN_URL = "https://czhhwofczlvxsiavkpwd.supabase.co/functions/v1/send-contact";
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+type FieldErrors = {
+  name?: string;
+  email?: string;
+  message?: string;
+};
 
 export default function Contact() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
+
+  function validate(payload: { name: string; email: string; message: string }): FieldErrors {
+    const errors: FieldErrors = {};
+    if (!payload.name || payload.name.length > 100) errors.name = "Name is required (max 100 characters).";
+    if (!payload.email || !EMAIL_REGEX.test(payload.email) || payload.email.length > 254) errors.email = "Please enter a valid email address.";
+    if (!payload.message || payload.message.length > 2000) errors.message = "Message is required (max 2000 characters).";
+    return errors;
+  }
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.currentTarget;
     const formData = new FormData(form);
     const payload = {
-      name: formData.get("name") as string,
-      email: formData.get("email") as string,
-      message: formData.get("message") as string,
+      name: (formData.get("name") as string).trim(),
+      email: (formData.get("email") as string).trim(),
+      message: (formData.get("message") as string).trim(),
     };
 
-    if (!payload.name || !payload.email || !payload.message) return;
+    const errors = validate(payload);
+    setFieldErrors(errors);
+    if (Object.keys(errors).length > 0) return;
 
     setStatus("sending");
     try {
-      const res = await fetch(EDGE_FN_URL, {
+      const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
@@ -89,17 +106,20 @@ export default function Contact() {
               <form className="space-y-6" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <label className="text-sm font-semibold">Name</label>
-                    <Input name="name" required placeholder="John Doe" className="bg-aly-bg-alt border-transparent focus-visible:ring-aly-violet rounded-xl h-12" />
+                    <label htmlFor="contact-name" className="text-sm font-semibold">Name</label>
+                    <Input id="contact-name" name="name" required placeholder="John Doe" className="bg-aly-bg-alt border-transparent focus-visible:ring-aly-violet rounded-xl h-12" />
+                    {fieldErrors.name && <p className="text-xs text-aly-coral">{fieldErrors.name}</p>}
                   </div>
                   <div className="space-y-2">
-                    <label className="text-sm font-semibold">Email</label>
-                    <Input name="email" type="email" required placeholder="john@example.com" className="bg-aly-bg-alt border-transparent focus-visible:ring-aly-violet rounded-xl h-12" />
+                    <label htmlFor="contact-email" className="text-sm font-semibold">Email</label>
+                    <Input id="contact-email" name="email" type="email" required placeholder="john@example.com" className="bg-aly-bg-alt border-transparent focus-visible:ring-aly-violet rounded-xl h-12" />
+                    {fieldErrors.email && <p className="text-xs text-aly-coral">{fieldErrors.email}</p>}
                   </div>
                 </div>
                 <div className="space-y-2">
-                  <label className="text-sm font-semibold">Message</label>
-                  <Textarea name="message" required placeholder="Tell me about your project..." className="bg-aly-bg-alt border-transparent focus-visible:ring-aly-violet rounded-xl min-h-[120px] resize-none" />
+                  <label htmlFor="contact-message" className="text-sm font-semibold">Message</label>
+                  <Textarea id="contact-message" name="message" required placeholder="Tell me about your project..." className="bg-aly-bg-alt border-transparent focus-visible:ring-aly-violet rounded-xl min-h-[120px] resize-none" />
+                  {fieldErrors.message && <p className="text-xs text-aly-coral">{fieldErrors.message}</p>}
                 </div>
                 <Button
                   type="submit"

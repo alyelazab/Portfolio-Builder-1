@@ -107,7 +107,7 @@ export default function Projects() {
                         />
                       ) : (
                         <span className="text-secondary-foreground/50 font-medium flex items-center gap-2">
-                          <Github className="w-5 h-5" /> Screenshot Placeholder
+                          <Github className="w-5 h-5" /> {project.title}
                         </span>
                       )}
                     </div>
