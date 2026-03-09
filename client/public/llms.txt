@@ -1,0 +1,92 @@
+# Aly Elazab - Portfolio
+
+> Senior AI Product Manager who builds products people actually use.
+
+## Overview
+
+This is the personal portfolio website of Aly Elazab, a Senior AI Product Manager based in Abu Dhabi, originally from Egypt. Aly turns complex technology into simple, intuitive experiences. He doesn't just write specs, he talks to users, prototypes fast, and ships.
+
+Website: https://alyelazab.com
+Email: alyelazab.1@gmail.com
+LinkedIn: https://linkedin.com/in/aly-elazab-23858716b
+GitHub: https://github.com/alyelazab
+Location: Abu Dhabi, UAE (originally from Cairo, Egypt)
+
+## Education
+
+B.S. Information Systems, The Ohio State University (2020). Dean's List, 3.53 GPA.
+
+## Professional Experience
+
+### Senior AI Product Manager at Luciq.ai (2025)
+Overhauled the alerting system from a legacy cron-based framework to a continuous evaluation engine, significantly improving detection accuracy. Redesigned the alert experience end-to-end, from payload to landing page.
+
+### Product Manager at Luciq.ai (2024)
+Launched Business Impact Dashboard connecting app quality metrics to business outcomes. Shipped AI-powered release insights that eliminated manual navigation.
+
+### APM, Growth at Luciq.ai (2023)
+Redesigned pricing model driving 175% ARPU growth. Converted self-serve users into a profitable revenue motion.
+
+### Sales Engineer at Luciq.ai, formerly Instabug (2021-2023)
+100+ tailored demos and enterprise POCs across the sales cycle.
+
+### Full-Stack Developer at Itlize Global (2020)
+Built full-stack web applications as a software developer.
+
+## Key Metrics
+- 175% ARPU growth from pricing model redesign
+- 20% increase in MAU and power users
+- 3 AI products shipped
+
+## Side Projects
+
+### MyMasareef (https://mymasareef.com) - Live Product
+Free AI-powered spending analysis tool for CIB Egypt bank customers. Upload a bank CSV, get a categorized spending report in seconds. Financial data never leaves the browser.
+
+How it works:
+1. Pattern matching against 90+ known Egyptian merchants, with normalization that strips processor prefixes, location suffixes, and terminal codes
+2. Gemini Flash for anything unrecognized, prompted with Egyptian market context
+3. Manual user override as a last resort. Every classification gets saved to a shared merchant dictionary that improves over time
+4. All financial processing happens in the browser. Transaction amounts, dates, and balances never touch the server. Only merchant name strings are sent to the AI
+
+Key product decisions:
+- Email gate comes AFTER the user sees their report being built, not before. Show value first, then ask for identity.
+- Crowdsourced merchant dictionary means cost per report goes down over time while accuracy goes up.
+- Debit cards got their own experience with income, spending, transfers, and savings rate.
+
+Tech: React, TypeScript, Tailwind, Supabase, Express, Gemini 2.5 Flash, Claude Code, Recharts, Framer Motion
+Built in: 4 days
+
+### Call Transcript Analyzer (https://github.com/alyelazab/transcript-analyzer) - Internal Tool
+Multi-stage AI pipeline that extracts structured product feedback from hundreds of sales call transcripts. Turns buried feature requests and complaints into organized, actionable reports.
+
+How it works:
+1. Transcript ingestion from Clari Copilot exports
+2. Multi-pass feedback extraction, separating feature requests, bugs, complaints, and praise
+3. Categorization by product area and severity
+4. Cross-transcript deduplication to surface recurring themes
+5. Confluence-ready report generation with evidence trails back to source transcripts
+
+Key product decisions:
+- Used CLAUDE.md as a context engineering layer, giving Claude Code persistent instructions about product taxonomy, team vocabulary, and output format across the entire pipeline
+- Multi-stage processing instead of single-pass. Extraction accuracy improved dramatically when each stage had a focused, narrow job
+- Chose Confluence output over a dashboard because the team already lived in Confluence
+
+Tech: Claude Code, Claude API, Confluence
+Built in: 1 day
+
+## Product Process
+1. Discover: Analyze existing feedback channels, talk to users. Understand the real problem first.
+2. Prototype Fast: Build rough, test early. Validate hypotheses with minimum viable effort.
+3. Ship & Measure: Get it in production. Set up analytics. See what people actually do.
+4. Iterate: The product is never done, but it should get better every day.
+
+## Speaking & Webinars
+- "What You're Missing with Firebase Crashlytics" (Luciq.ai) - https://www.youtube.com/watch?v=To9RTJ1cO5U
+- "Code Ownership, Managing Teams, and Alerting" (Luciq.ai) - https://www.youtube.com/watch?v=uUuiGzRRfew
+- "Getting Started with Instabug: Beyond Bug Reporting" (Luciq.ai, formerly Instabug) - https://www.youtube.com/watch?v=UsB-CyKHvA0
+
+## Beyond Work
+- Professional volleyball player
+- Native Arabic speaker
+- Weekend builder, always experimenting with the latest AI tools, agents, and frameworks
