@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight, Github, ChevronDown } from "lucide-react";
 import { projectsData, myMasareefCaseStudy, transcriptAnalyzerCaseStudy } from "@/lib/data";
-import masareefLaunch from "@/assets/masareef-launch.mp4";
+import mymasareefDemo from "@/assets/mymasareef-demo.gif";
 import transcriptDemo from "@/assets/transcript-demo.gif";
 
 const caseStudies = {
@@ -99,18 +99,9 @@ export default function Projects() {
 
                     <div className="flex-1 rounded-xl bg-aly-bg-alt border border-border/50 flex items-center justify-center min-h-[240px] relative overflow-hidden group-hover:border-aly-violet/30 transition-colors">
                       <div className="absolute inset-0 bg-gradient-to-br from-aly-violet/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                      {project.image === "mymasareef-demo" ? (
-                        <video
-                          src={masareefLaunch}
-                          autoPlay
-                          loop
-                          muted
-                          playsInline
-                          className="w-full h-full object-cover"
-                        />
-                      ) : project.image ? (
+                      {project.image ? (
                         <img
-                          src={project.image === "transcript-demo" ? transcriptDemo : undefined}
+                          src={project.image === "mymasareef-demo" ? mymasareefDemo : project.image === "transcript-demo" ? transcriptDemo : undefined}
                           alt={project.title}
                           className="w-full h-full object-cover"
                         />
