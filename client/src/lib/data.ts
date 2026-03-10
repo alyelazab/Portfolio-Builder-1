@@ -127,7 +127,13 @@ export const experienceRoles = [
   },
 ];
 
-export const speakingTalks = [
+export const speakingTalks: {
+  title: string;
+  event: string;
+  url?: string;
+  thumbnail?: string;
+  localVideo?: string;
+}[] = [
   {
     title: "What You're Missing with Firebase Crashlytics",
     event: "Luciq.ai",
@@ -145,6 +151,11 @@ export const speakingTalks = [
     event: "Luciq.ai (formerly Instabug)",
     url: "https://www.youtube.com/watch?v=UsB-CyKHvA0",
     thumbnail: "https://i.ytimg.com/vi/UsB-CyKHvA0/hqdefault.jpg",
+  },
+  {
+    title: "MyMasareef Launch",
+    event: "Product Launch",
+    localVideo: "masareef-launch",
   },
 ];
 
