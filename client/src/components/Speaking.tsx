@@ -38,7 +38,7 @@ export default function Speaking() {
     const el = scrollRef.current;
     if (!el) return;
     const cardWidth = el.querySelector<HTMLElement>(":scope > *")?.offsetWidth ?? 300;
-    el.scrollBy({ left: direction === "right" ? cardWidth + 16 : -(cardWidth + 16), behavior: "smooth" });
+    el.scrollBy({ left: direction === "right" ? cardWidth + 32 : -(cardWidth + 32), behavior: "smooth" });
   };
 
   const handlePlay = (talk: (typeof speakingTalks)[number]) => {
@@ -81,7 +81,7 @@ export default function Speaking() {
             {/* Scrollable row */}
             <div
               ref={scrollRef}
-              className="flex gap-4 overflow-x-auto scrollbar-hide scroll-smooth"
+              className="flex gap-8 overflow-x-auto scrollbar-hide scroll-smooth"
               style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
             >
               {speakingTalks.map((talk, i) => (
