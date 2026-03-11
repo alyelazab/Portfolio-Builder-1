@@ -121,7 +121,7 @@ export default function Speaking() {
                     </div>
 
                     {/* Info below thumbnail */}
-                    <div className="mt-3 px-1 pb-1 space-y-1">
+                    <div className="mt-3 px-1 pb-1 h-[60px] space-y-1">
                       <h3 className="text-sm font-semibold text-foreground leading-snug line-clamp-2 group-hover:text-aly-violet transition-colors">
                         {talk.title}
                       </h3>
