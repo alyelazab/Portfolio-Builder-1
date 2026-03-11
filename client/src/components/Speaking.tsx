@@ -72,7 +72,7 @@ export default function Speaking() {
             {canScrollLeft && (
               <button
                 onClick={() => scroll("left")}
-                className="absolute -left-4 top-[calc(50%-40px)] -translate-y-1/2 z-10 w-10 h-10 bg-background border border-border/50 rounded-full flex items-center justify-center shadow-lg hover:border-aly-violet/50 transition-colors cursor-pointer"
+                className="absolute -left-4 top-[calc(50%-40px)] -translate-y-1/2 z-10 w-10 h-10 bg-aly-violet text-white rounded-full flex items-center justify-center shadow-lg hover:bg-aly-violet/85 transition-colors cursor-pointer"
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
@@ -117,10 +117,6 @@ export default function Speaking() {
                         <Play className="w-5 h-5 text-white ml-0.5" fill="currentColor" />
                       </div>
                     </div>
-                    {/* Year badge */}
-                    <div className="absolute bottom-2 right-2 px-2 py-0.5 bg-black/80 rounded text-white text-xs font-medium">
-                      {talk.year}
-                    </div>
                   </div>
 
                   {/* Info below thumbnail */}
@@ -138,7 +134,7 @@ export default function Speaking() {
             {canScrollRight && (
               <button
                 onClick={() => scroll("right")}
-                className="absolute -right-4 top-[calc(50%-40px)] -translate-y-1/2 z-10 w-10 h-10 bg-background border border-border/50 rounded-full flex items-center justify-center shadow-lg hover:border-aly-violet/50 transition-colors cursor-pointer"
+                className="absolute -right-4 top-[calc(50%-40px)] -translate-y-1/2 z-10 w-10 h-10 bg-aly-violet text-white rounded-full flex items-center justify-center shadow-lg hover:bg-aly-violet/85 transition-colors cursor-pointer"
               >
                 <ChevronRight className="w-5 h-5" />
               </button>
