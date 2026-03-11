@@ -38,7 +38,7 @@ export default function Speaking() {
     const el = scrollRef.current;
     if (!el) return;
     const cardWidth = el.querySelector<HTMLElement>(":scope > *")?.offsetWidth ?? 300;
-    el.scrollBy({ left: direction === "right" ? cardWidth + 32 : -(cardWidth + 32), behavior: "smooth" });
+    el.scrollBy({ left: direction === "right" ? cardWidth + 16 : -(cardWidth + 16), behavior: "smooth" });
   };
 
   const handlePlay = (talk: (typeof speakingTalks)[number]) => {
@@ -81,7 +81,7 @@ export default function Speaking() {
             {/* Scrollable row */}
             <div
               ref={scrollRef}
-              className="flex gap-8 overflow-x-auto scrollbar-hide scroll-smooth"
+              className="flex gap-4 overflow-x-auto scrollbar-hide scroll-smooth"
               style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
             >
               {speakingTalks.map((talk, i) => (
@@ -91,40 +91,42 @@ export default function Speaking() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: i * 0.08 }}
-                  className="flex-shrink-0 w-[280px] sm:w-[300px] cursor-pointer group"
+                  className="flex-shrink-0 w-[300px] sm:w-[320px] cursor-pointer group"
                   onClick={() => handlePlay(talk)}
                 >
-                  {/* Thumbnail */}
-                  <div className="relative rounded-xl overflow-hidden aspect-video bg-background border border-border/50">
-                    {talk.localVideo ? (
-                      <video
-                        src={localVideos[talk.localVideo]}
-                        muted
-                        playsInline
-                        preload="metadata"
-                        className="absolute inset-0 w-full h-full object-cover"
-                      />
-                    ) : (
-                      <img
-                        src={talk.thumbnail}
-                        alt={talk.title}
-                        className="absolute inset-0 w-full h-full object-cover"
-                      />
-                    )}
-                    {/* Hover overlay with play icon */}
-                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
-                      <div className="w-12 h-12 bg-black/70 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                        <Play className="w-5 h-5 text-white ml-0.5" fill="currentColor" />
+                  <div className="bg-background border border-border/50 rounded-[20px] p-3 shadow-sm hover:shadow-md hover:border-aly-violet/20 transition-all">
+                    {/* Thumbnail */}
+                    <div className="relative rounded-xl overflow-hidden aspect-video">
+                      {talk.localVideo ? (
+                        <video
+                          src={localVideos[talk.localVideo]}
+                          muted
+                          playsInline
+                          preload="metadata"
+                          className="absolute inset-0 w-full h-full object-cover"
+                        />
+                      ) : (
+                        <img
+                          src={talk.thumbnail}
+                          alt={talk.title}
+                          className="absolute inset-0 w-full h-full object-cover"
+                        />
+                      )}
+                      {/* Hover overlay with play icon */}
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                        <div className="w-12 h-12 bg-black/70 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                          <Play className="w-5 h-5 text-white ml-0.5" fill="currentColor" />
+                        </div>
                       </div>
                     </div>
-                  </div>
 
-                  {/* Info below thumbnail */}
-                  <div className="mt-3 space-y-1">
-                    <h3 className="text-sm font-semibold text-foreground leading-snug line-clamp-2 group-hover:text-aly-violet transition-colors">
-                      {talk.title}
-                    </h3>
-                    <p className="text-xs text-secondary-foreground/60">{talk.event}</p>
+                    {/* Info below thumbnail */}
+                    <div className="mt-3 px-1 pb-1 space-y-1">
+                      <h3 className="text-sm font-semibold text-foreground leading-snug line-clamp-2 group-hover:text-aly-violet transition-colors">
+                        {talk.title}
+                      </h3>
+                      <p className="text-xs text-secondary-foreground/60">{talk.event}</p>
+                    </div>
                   </div>
                 </motion.div>
               ))}
