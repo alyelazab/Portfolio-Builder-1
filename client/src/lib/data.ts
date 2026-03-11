@@ -130,32 +130,37 @@ export const experienceRoles = [
 export const speakingTalks: {
   title: string;
   event: string;
+  year: string;
   url?: string;
   thumbnail?: string;
   localVideo?: string;
 }[] = [
   {
-    title: "What You're Missing with Firebase Crashlytics",
-    event: "Luciq.ai",
-    url: "https://www.youtube.com/watch?v=To9RTJ1cO5U",
-    thumbnail: "https://i.ytimg.com/vi/To9RTJ1cO5U/hqdefault.jpg",
+    title: "MyMasareef Launch",
+    event: "Product Launch",
+    year: "2025",
+    localVideo: "masareef-launch",
   },
   {
     title: "Code Ownership, Managing Teams, and Alerting",
     event: "Luciq.ai",
+    year: "2024",
     url: "https://www.youtube.com/watch?v=uUuiGzRRfew",
     thumbnail: "https://i.ytimg.com/vi/uUuiGzRRfew/hqdefault.jpg",
   },
   {
-    title: "Getting Started with Instabug: Beyond Bug Reporting",
-    event: "Luciq.ai (formerly Instabug)",
-    url: "https://www.youtube.com/watch?v=UsB-CyKHvA0",
-    thumbnail: "https://i.ytimg.com/vi/UsB-CyKHvA0/hqdefault.jpg",
+    title: "What You're Missing with Firebase Crashlytics",
+    event: "Luciq.ai",
+    year: "2023",
+    url: "https://www.youtube.com/watch?v=To9RTJ1cO5U",
+    thumbnail: "https://i.ytimg.com/vi/To9RTJ1cO5U/hqdefault.jpg",
   },
   {
-    title: "MyMasareef Launch",
-    event: "Product Launch",
-    localVideo: "masareef-launch",
+    title: "Getting Started with Instabug: Beyond Bug Reporting",
+    event: "Luciq.ai (formerly Instabug)",
+    year: "2022",
+    url: "https://www.youtube.com/watch?v=UsB-CyKHvA0",
+    thumbnail: "https://i.ytimg.com/vi/UsB-CyKHvA0/hqdefault.jpg",
   },
 ];
 
